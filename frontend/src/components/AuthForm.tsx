@@ -19,7 +19,7 @@ function AuthForm() {
       if (username === validUsername && password === validPassword) {
         navigate("/");
       } else {
-        alert("Contraseña o usuario incorrectos");
+        alert("Contraseña o usuario incorrecto");
       }
     } catch (error) {
       alert(error);
