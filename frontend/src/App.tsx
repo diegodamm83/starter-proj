@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import { useAuthContext } from "./context/AuthContext";
 import { Toaster } from "react-hot-toast";
 import UserPage from "./pages/UserPage";
-
+import Signup from "./pages/Signup";
 function App() {
   const { authUser, isLoading } = useAuthContext();
 
@@ -21,7 +21,7 @@ function App() {
             element={authUser ? <Home /> : <Navigate to={"/login"} />}
           />
           <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           <Route
             path="/userpage"
             element={authUser ? <UserPage /> : <Navigate to={"/login"} />}

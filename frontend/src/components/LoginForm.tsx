@@ -26,7 +26,7 @@ const Login = () => {
         <form onSubmit={handleSubmitForm}>
           <div>
             <label className="label p-2 ">
-              <span className="text-base label-text">Username</span>
+              <span className="text-base label-text">Username or Email</span>
             </label>
             <input
               type="text"

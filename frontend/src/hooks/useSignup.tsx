@@ -7,6 +7,7 @@ type SignupInputs = {
   username: string;
   password: string;
   confirmPassword: string;
+  email: string;
   gender: string;
 };
 
