@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useAuthContext } from "../context/AuthContext";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const useLogin = () => {
   const [loading, setLoading] = useState(false);
   const { setAuthUser } = useAuthContext();
+  const navigate = useNavigate();
 
   const login = async (usernameOrEmail: string, password: string) => {
     try {
@@ -20,6 +22,7 @@ const useLogin = () => {
 
       if (!res.ok) throw new Error(data.error);
       setAuthUser(data);
+      navigate("/");
     } catch (error: any) {
       toast.error(error.message);
       console.error(error.message);

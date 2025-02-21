@@ -15,6 +15,7 @@ function AuthForm() {
   const handleSubmitForm = (e: React.FormEvent) => {
     e.preventDefault();
     login(inputs.username, inputs.password);
+    setInputs({ username: "", password: "" });
   };
 
   return (
