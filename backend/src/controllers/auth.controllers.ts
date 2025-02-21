@@ -5,7 +5,8 @@ import generateToken from "../utils/generateToken.js";
 
 export const signup = async (req: Request, res: Response): Promise<any> => {
   try {
-    const { fullName, username, email, password, confirmPassword } = req.body;
+    const { fullName, username, email, password, confirmPassword, role } =
+      req.body;
 
     if (!fullName || !username || !email || !password || !confirmPassword) {
       return res.status(400).json({ msg: "All fields are required" });
@@ -32,17 +33,21 @@ export const signup = async (req: Request, res: Response): Promise<any> => {
 
     // Profile pictures
     const boyProfilePic = `https://avatar.iran.liara.run/public/boy/?username{${username}}`;
-    res.send("Login successful");
 
+    const newUserData: any = {
+      fullName,
+      username,
+      email,
+      password: hashedPassword,
+      profilePic: boyProfilePic,
+    };
+    if (role) {
+      newUserData.role = role;
+    }
     const newUser = await prisma.user.create({
-      data: {
-        fullName,
-        username,
-        email,
-        password: hashedPassword,
-        profilePic: boyProfilePic,
-      },
+      data: newUserData,
     });
+
     if (newUser) {
       generateToken(newUser.id, res);
 

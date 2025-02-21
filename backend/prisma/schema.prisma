@@ -20,4 +20,5 @@ model User {
   username   String  @unique
   password   String
   profilePic String?
+  role       String  @default("user")
 }

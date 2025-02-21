@@ -1,6 +1,7 @@
 import useLogout from "../hooks/useLogout";
 import "../styles/NavBar.css";
 import { useNavigate } from "react-router-dom";
+import { Goal } from "lucide-react";
 
 const Navbar = ({ fullName }: { fullName: string }) => {
   const navigate = useNavigate();
@@ -9,16 +10,17 @@ const Navbar = ({ fullName }: { fullName: string }) => {
   return (
     <nav className="navbar navbar-light bg-light">
       <div className="container-fluid space-between">
-        <a className="navbar-brand">
-          <img
+        <div className="navbar-brand flex items-center gap-2">
+          {/* <img
             src="/docs/5.0/assets/brand/bootstrap-logo.svg"
             alt=""
             width="30"
             height="24"
             className="d-inline-block align-text-top mr-3"
-          />
-          Bootstrap
-        </a>
+          /> */}
+          <Goal size={30} className="" />
+          PathExplorer
+        </div>
         {fullName ? (
           <div>
             <span className="mr-3">Welcome, {fullName}</span>
