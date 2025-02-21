@@ -1,4 +1,4 @@
-import React, {
+import {
   Dispatch,
   ReactNode,
   SetStateAction,
@@ -40,14 +40,14 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     const fetchAuthUser = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/auth/me");
+        const res = await fetch("/api/auth/me");
         const data = await res.json();
         if (!res.ok) {
-          throw new Error(data.message);
+          throw new Error(data.error);
         }
         setAuthUser(data);
       } catch (error: any) {
-        console.error(error.message);
+        console.error(error);
         toast.error(error.message);
       } finally {
         setIsLoading(false);

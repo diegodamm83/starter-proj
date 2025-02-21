@@ -11,10 +11,11 @@ const router = express.Router();
 router.get("/login", (req, res) => {
   res.send("Login successful");
 });
-
+router.post("/logout", logout);
 router.post("/signup", signup);
-export default router;
 
 router.post("/login", login);
 
 router.get("/me", protectRoute, getMe);
+
+export default router;
