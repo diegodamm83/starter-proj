@@ -4,8 +4,9 @@ import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import { useAuthContext } from "./context/AuthContext";
 import { Toaster } from "react-hot-toast";
-import UserPage from "./pages/UserPage";
 import Signup from "./pages/Signup";
+import MyProfile from "./pages/MyProfile";
+import Leaderboards from "./pages/Leaderboards";
 function App() {
   const { authUser, isLoading } = useAuthContext();
 
@@ -23,8 +24,12 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route
-            path="/userpage"
-            element={authUser ? <UserPage /> : <Navigate to={"/login"} />}
+            path="/my-profile"
+            element={authUser ? <MyProfile /> : <Navigate to={"/login"} />}
+          />
+          <Route
+            path="/leaderboards"
+            element={authUser ? <Leaderboards /> : <Navigate to={"/login"} />}
           />
         </Routes>
         <Toaster />

@@ -77,14 +77,14 @@ const Navbar = ({ fullName }: { fullName: string }) => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             <li>
-              <a>Home</a>
+              <a href="/">Home</a>
             </li>
             <li>
-              <a>My profile</a>
+              <a href="/my-profile">My profile</a>
             </li>
             {fullName ? (
               <li>
-                <a>Leaderboards</a>
+                <a href="/leaderboards">Leaderboards</a>
               </li>
             ) : (
               <></>

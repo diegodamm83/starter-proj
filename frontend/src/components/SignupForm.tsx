@@ -5,6 +5,7 @@ import useSignup from "../hooks/useSignup";
 const SignUp = () => {
   const [inputs, setInputs] = useState({
     fullName: "",
+    email: "",
     username: "",
     password: "",
     confirmPassword: "",
