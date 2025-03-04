@@ -1,5 +1,4 @@
 import useLogout from "../hooks/useLogout";
-import "../styles/NavBar.css";
 import { useNavigate } from "react-router-dom";
 import { Goal } from "lucide-react";
 import { useAuthContext } from "../context/AuthContext";
