@@ -15,7 +15,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Navbar fullName={authUser?.fullName ?? ""} />
+        <Navbar />
         <Routes>
           <Route
             path="/"

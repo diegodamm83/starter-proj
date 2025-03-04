@@ -2,10 +2,11 @@ import useLogout from "../hooks/useLogout";
 import "../styles/NavBar.css";
 import { useNavigate } from "react-router-dom";
 import { Goal } from "lucide-react";
+import { useAuthContext } from "../context/AuthContext";
 
-const Navbar = ({ fullName }: { fullName: string }) => {
-  const navigate = useNavigate();
+const Navbar = () => {
   const { logout } = useLogout();
+  const { authUser } = useAuthContext();
 
   return (
     // <nav className="navbar navbar-light bg-light">
@@ -82,7 +83,7 @@ const Navbar = ({ fullName }: { fullName: string }) => {
             <li>
               <a href="/my-profile">My profile</a>
             </li>
-            {fullName ? (
+            {authUser ? (
               <li>
                 <a href="/leaderboards">Leaderboards</a>
               </li>
