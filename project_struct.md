@@ -9,8 +9,4 @@ Backend: backend logic
 use node 18.17.0
 
 Posgres generte docker script
-docker run --name some-postgres \          
-  -e POSTGRES_USER=postgres \                                                            
-  -e POSTGRES_PASSWORD=admin \                                                           
-  -e POSTGRES_DB=pibby \                                                                 
-  -d postgres
+docker run --name postgres -e POSTGRES_PASSWORD=admin -p 5432:5432 -d postgres

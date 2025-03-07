@@ -7,6 +7,7 @@ import { Toaster } from "react-hot-toast";
 import Signup from "./pages/Signup";
 import MyProfile from "./pages/MyProfile";
 import Leaderboards from "./pages/Leaderboards";
+import CardApi from "./pages/CardApi";
 function App() {
   const { authUser, isLoading } = useAuthContext();
 
@@ -31,6 +32,7 @@ function App() {
             path="/leaderboards"
             element={authUser ? <Leaderboards /> : <Navigate to={"/login"} />}
           />
+          <Route path="/card-api" element={<CardApi />} />
         </Routes>
         <Toaster />
       </BrowserRouter>
