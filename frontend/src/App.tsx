@@ -8,6 +8,7 @@ import Signup from "./pages/Signup";
 import MyProfile from "./pages/MyProfile";
 import Leaderboards from "./pages/Leaderboards";
 import CardApi from "./pages/CardApi";
+import ForgotPassword from "./pages/ForgotPassword";
 function App() {
   const { authUser, isLoading } = useAuthContext();
 
@@ -33,6 +34,7 @@ function App() {
             element={authUser ? <Leaderboards /> : <Navigate to={"/login"} />}
           />
           <Route path="/card-api" element={<CardApi />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
         </Routes>
         <Toaster />
       </BrowserRouter>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/AuthForm.css";
+import { Link } from "react-router-dom";
 import useLogin from "../hooks/useLogin";
 
 function Login() {
@@ -35,7 +36,18 @@ function Login() {
         onChange={(e) => setInputs({ ...inputs, password: e.target.value })}
         placeholder="Password"
       />
-      <a href="/signup">Don't have an account yet?</a>
+      <Link
+        to="/signup"
+        className="text-sm  hover:underline text-black hover:text-blue-600 mt-2 inline-block"
+      >
+        Don't have an account yet?
+      </Link>
+      <Link
+        to="/forgot-password"
+        className="text-sm  hover:underline text-black hover:text-blue-600 mt-2 inline-block"
+      >
+        Forgot Password?
+      </Link>
       <button className="form-button" type="submit">
         Login
       </button>

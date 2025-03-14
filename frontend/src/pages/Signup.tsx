@@ -1,6 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import useSignup from "../hooks/useSignup";
+import { DayPicker } from "react-day-picker";
+
+import "cally";
 
 const Signup = () => {
   const [inputs, setInputs] = useState({
@@ -11,6 +14,7 @@ const Signup = () => {
     confirmPassword: "",
     gender: "male",
   });
+  const [date, setDate] = useState<Date | undefined>();
   const { loading, signup } = useSignup();
   const navigate = useNavigate();
 
@@ -52,6 +56,27 @@ const Signup = () => {
         onChange={(e) => setInputs({ ...inputs, email: e.target.value })}
         placeholder="Email"
       />
+      <button
+        popoverTarget="rdp-popover"
+        className="form-input"
+        style={{ anchorName: "--rdp" } as React.CSSProperties}
+        type="button"
+      >
+        {date ? date.toLocaleDateString() : "Elige tu fecha de cumpleaños"}
+      </button>
+      <div
+        popover="auto"
+        id="rdp-popover"
+        className="dropdown"
+        style={{ positionAnchor: "--rdp" } as React.CSSProperties}
+      >
+        <DayPicker
+          className="react-day-picker"
+          mode="single"
+          selected={date}
+          onSelect={setDate}
+        />
+      </div>
       <input
         className="form-input"
         type="password"
@@ -68,6 +93,7 @@ const Signup = () => {
         }
         placeholder="Confirm password"
       />
+
       <a>
         Already have an account? <a href="/login">Login</a>
       </a>
